@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LockIN Practice Zone</title>
+
+<link rel="stylesheet" href="practice.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            🔒 LockIN
+        </div>
+        <nav>
+            <a href="dashboard.html">🏠 Dashboard</a>
+            <a href="tutor.html">🤖 AI Tutor</a>
+            <a href="practice.html" class="active">🎯 Practice</a>
+            <a href="focus.html">⏱ Focus Room</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1>🎯 Practice Zone</h1>
+
+        <p>
+            Generate exam-style questions instantly.
+        </p>
+
+        <div class="generator-card">
+
+            <select id="subject">
+                <option>Science</option>
+                <option>Maths</option>
+                <option>English</option>
+                <option>Social Science</option>
+            </select>
+
+            <input
+            type="text"
+            id="chapter"
+            placeholder="Enter Chapter Name">
+
+            <button onclick="generateQuestions()">
+                Generate Questions
+            </button>
+
+        </div>
+
+        <div id="output">
+
+            <div class="welcome">
+                Select a subject and chapter to begin.
+            </div>
+
+        </div>
+    </main>
+
+</div>
+
+<script src="config.js"></script>
+<script src="practice.js"></script>
+
+</body>
+</html>

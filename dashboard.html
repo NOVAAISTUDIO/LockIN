@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LockIN Dashboard</title>
+
+<link rel="stylesheet" href="dashboard.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            🔒 LockIN
+        </div>
+
+        <nav>
+
+            <a href="dashboard.html" class="active">
+                🏠 Dashboard
+            </a>
+        
+            <a href="tutor.html">
+                🤖 AI Tutor
+            </a>
+        
+            <a href="practice.html">
+                🎯 Practice
+            </a>
+        
+            <a href="focus.html">
+                ⏱ Focus Room
+            </a>
+        
+        </nav>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <header>
+
+            <div>
+
+                <h1>
+                    Good Evening 👋
+                </h1>
+
+                <p>
+                    Let's make today productive.
+                </p>
+
+            </div>
+
+            <div class="profile">
+
+                <img src="https://i.pravatar.cc/100"
+                alt="profile">
+
+            </div>
+
+        </header>
+
+        <!-- Stats -->
+
+        <section class="stats">
+
+            <div class="card streak">
+
+                <h3>🔥 Streak</h3>
+
+                <h1>7 Days</h1>
+
+            </div>
+
+            <div class="card">
+
+                <h3>📚 Study Time</h3>
+
+                <h1>3h 42m</h1>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🎯 Tasks Done</h3>
+
+                <h1 id="tasksDoneCount">0/0</h1>
+
+            </div>
+
+            <div class="card">
+
+                <h3>⚡ Focus Score</h3>
+
+                <h1>82%</h1>
+
+            </div>
+
+        </section>
+
+        <section class="mission">
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+                <h2>Today's Mission</h2>
+                <div class="task-input-group" style="display: flex; gap: 10px; align-items: center;">
+                    <input type="text" id="newTaskInput" placeholder="Add new task..." style="padding: 10px 15px; border-radius: 8px; border: none; background: #111827; color: white; font-family: Inter, sans-serif; font-size: 14px; width: 220px; border: 1px solid rgba(255, 255, 255, 0.05);">
+                    <button id="addTaskBtn" style="padding: 10px 18px; border-radius: 8px; border: none; background: var(--primary); color: white; font-weight: bold; cursor: pointer; transition: 0.2s;">+ Add</button>
+                </div>
+            </div>
+
+            <div class="task-list" id="taskList">
+                <!-- Will be loaded dynamically from dashboard.js -->
+            </div>
+
+        </section>
+
+        <!-- Quick Actions -->
+
+        <section>
+
+            <h2>Quick Actions</h2>
+
+            <div class="actions">
+
+                <a href="tutor.html" style="text-decoration: none; color: inherit;">
+                    <div class="action-card">
+                        🤖
+                        <h3>AI Tutor</h3>
+                    </div>
+                </a>
+
+                <div class="action-card">
+                    📅
+                    <h3>Planner</h3>
+                </div>
+
+                <a href="practice.html" style="text-decoration: none; color: inherit;">
+                    <div class="action-card">
+                        🎯
+                        <h3>Practice</h3>
+                    </div>
+                </a>
+
+                <a href="focus.html" style="text-decoration: none; color: inherit;">
+                    <div class="action-card">
+                        ⏱
+                        <h3>Focus</h3>
+                    </div>
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Bottom Grid -->
+
+        <section class="bottom-grid">
+
+            <div class="exam-card">
+
+                <h2>
+                    📆 Board Exam Countdown
+                </h2>
+
+                <h1 id="countdownText">
+                    -- Days
+                </h1>
+
+            </div>
+
+            <div class="quote-card">
+
+                <h2>
+                    💡 Quote of the Day
+                </h2>
+
+                <p>
+                    The secret of getting ahead
+                    is getting started.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

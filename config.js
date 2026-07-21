@@ -1,0 +1,2 @@
+const GEMINI_API_KEY = "AIzaSyBl3Rl3jxjnLNwCggDO3O98GQMXhs2e_7A";
+const GROQ_API_KEY = "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";

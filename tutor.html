@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LockIN AI Tutor</title>
+
+<link rel="stylesheet" href="tutor.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            🔒 LockIN
+        </div>
+    
+        <nav>
+    
+            <a href="dashboard.html">🏠 Dashboard</a>
+    
+            <a href="tutor.html" class="active">🤖 AI Tutor</a>
+    
+            <a href="practice.html">🎯 Practice</a>
+    
+            <a href="focus.html">⏱ Focus Room</a>
+    
+        </nav>
+    
+        <hr>
+    
+        <div class="mode active" data-mode="teacher">
+            📖 Explain Like Teacher
+        </div>
+    
+        <div class="mode" data-mode="exam">
+            ⚡ Exam Mode
+        </div>
+    
+        <div class="mode" data-mode="revision">
+            📝 Revision Mode
+        </div>
+    
+        <div class="mode" data-mode="language">
+            🌐 Mother Tongue
+        </div>
+    
+    </aside>
+
+    <!-- Main -->
+
+    <main class="chat-area">
+
+        <div class="top-bar">
+
+            <h2>AI Tutor</h2>
+
+            <select id="boardSelect">
+                <option value="CBSE Class 10">CBSE Class 10</option>
+                <option value="State Board">State Board</option>
+            </select>
+
+        </div>
+
+        <div id="chat-box">
+
+            <div class="ai-message">
+                👋 Hi! I am LockIN Tutor.
+                What would you like to learn today?
+            </div>
+        
+            <div class="suggestions">
+        
+                <div class="suggestion">
+                    Explain Trigonometry like a teacher
+                </div>
+        
+                <div class="suggestion">
+                    Give me Science revision notes
+                </div>
+        
+                <div class="suggestion">
+                    Generate 10 MCQs from Life Processes
+                </div>
+        
+                <div class="suggestion">
+                    Explain this in Tamil
+                </div>
+        
+            </div>
+        
+        </div>
+
+        <!-- Image Preview Container -->
+        <div id="imagePreviewContainer" style="display:none; padding: 10px 20px; background: #1E293B; display: flex; align-items: center; gap: 15px; border-top: 1px solid #2D3748; border-bottom: 1px solid #2D3748;">
+            <div style="position: relative;">
+                <img id="imagePreview" src="" style="max-height: 80px; border-radius: 8px; border: 1px solid #374151; display: block;">
+                <button type="button" id="clearImageBtn" style="position: absolute; top: -8px; right: -8px; background: #EF4444; color: white; border: none; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: bold;">✕</button>
+            </div>
+            <span id="imageName" style="color: #94A3B8; font-size: 14px;"></span>
+        </div>
+
+        <div class="input-area">
+
+            <input
+            id="userInput"
+            placeholder="Ask your doubt..." />
+        
+            <label for="fileUpload" class="attach-btn" style="background: var(--card); border: none; padding: 15px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; transition: 0.2s; font-size: 18px;">
+                📎
+            </label>
+            <input type="file" id="fileUpload" style="display: none;" accept="image/*">
+        
+            <button onclick="sendMessage()">
+                Send
+            </button>
+        
+        </div>
+
+    </main>
+
+</div>
+
+<script src="config.js"></script>
+<script src="tutor.js"></script>
+
+</body>
+</html>

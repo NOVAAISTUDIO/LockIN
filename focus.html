@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LockIN Focus Room</title>
+
+<link rel="stylesheet" href="focus.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            🔒 LockIN
+        </div>
+        <nav>
+            <a href="dashboard.html">🏠 Dashboard</a>
+            <a href="tutor.html">🤖 AI Tutor</a>
+            <a href="practice.html">🎯 Practice</a>
+            <a href="focus.html" class="active">⏱ Focus Room</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1>🔒 Focus Room</h1>
+
+        <p>
+            Eliminate distractions and lock into your studies.
+        </p>
+
+            <div class="timer-card">
+
+            <h2>Pomodoro Session</h2>
+            <p style="margin-bottom: 25px;">Stay focused, study hard, reward yourself with rest.</p>
+
+            <!-- Mode selector tabs -->
+            <div class="timer-modes" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; flex-wrap: wrap;">
+                <button class="timer-mode-btn active" data-time="1500" style="padding: 10px 20px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05); color: #F8FAFC; cursor: pointer; transition: 0.2s; font-family: Poppins, sans-serif; font-weight: 600;">🎯 Study (25m)</button>
+                <button class="timer-mode-btn" data-time="300" style="padding: 10px 20px; border-radius: 20px; background: var(--card); border: 1px solid rgba(255,255,255,0.05); color: #94A3B8; cursor: pointer; transition: 0.2s; font-family: Poppins, sans-serif;">☕ Short Break (5m)</button>
+                <button class="timer-mode-btn" data-time="900" style="padding: 10px 20px; border-radius: 20px; background: var(--card); border: 1px solid rgba(255,255,255,0.05); color: #94A3B8; cursor: pointer; transition: 0.2s; font-family: Poppins, sans-serif;">🌴 Long Break (15m)</button>
+            </div>
+
+            <!-- Circular Progress SVG Wrapper -->
+            <div class="timer-circle-wrapper" style="position: relative; width: 220px; height: 220px; margin: 30px auto; display: flex; align-items: center; justify-content: center;">
+                <svg class="timer-svg" width="220" height="220" viewBox="0 0 220 220" style="transform: rotate(-90deg); filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.2));">
+                    <circle class="timer-bg" cx="110" cy="110" r="95" stroke="rgba(255, 255, 255, 0.05)" stroke-width="10" fill="transparent" />
+                    <circle id="timer-progress" cx="110" cy="110" r="95" stroke="var(--primary)" stroke-width="10" fill="transparent" stroke-dasharray="597" stroke-dashoffset="0" stroke-linecap="round" style="transition: stroke-dashoffset 0.5s linear, stroke 0.3s;" />
+                </svg>
+                <div id="timer" style="position: absolute; font-size: 42px; font-weight: 800; font-family: Poppins, sans-serif; color: #F8FAFC;">25:00</div>
+            </div>
+
+            <!-- Timer controls -->
+            <div class="buttons" style="margin-top: 20px;">
+
+                <button onclick="startTimer()" id="startBtn">
+                    Start
+                </button>
+
+                <button onclick="pauseTimer()" id="pauseBtn" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255,255,255,0.1);">
+                    Pause
+                </button>
+
+                <button onclick="resetTimer()" id="resetBtn" style="background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.2); color: #FCA5A5;">
+                    Reset
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Ambient Sound Controls -->
+        <div class="ambient-sound-card" style="margin-top: 30px; background: var(--card); border-radius: 20px; padding: 25px; display: flex; flex-direction: column; gap: 15px; border: 1px solid rgba(255,255,255,0.03);">
+            <h3 style="font-size: 18px; display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--text); font-family: Poppins, sans-serif;">🎧 Ambient Soundscape</h3>
+            <div class="sounds-list" style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                <button class="sound-btn active" data-sound="none" style="padding: 10px 18px; border-radius: 12px; background: var(--primary); border: none; color: white; cursor: pointer; transition: 0.2s; font-family: Inter, sans-serif; font-weight: 500;">🔇 None</button>
+                <button class="sound-btn" data-sound="lofi" style="padding: 10px 18px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05); color: #94A3B8; cursor: pointer; transition: 0.2s; font-family: Inter, sans-serif;">🎵 Lofi Study</button>
+                <button class="sound-btn" data-sound="rain" style="padding: 10px 18px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05); color: #94A3B8; cursor: pointer; transition: 0.2s; font-family: Inter, sans-serif;">🌧️ Rain</button>
+                <button class="sound-btn" data-sound="forest" style="padding: 10px 18px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05); color: #94A3B8; cursor: pointer; transition: 0.2s; font-family: Inter, sans-serif;">🌲 Forest</button>
+            </div>
+            <audio id="ambient-audio" loop></audio>
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-card">
+                🔥
+                <h2>7 Day Streak</h2>
+            </div>
+
+            <div class="stat-card">
+                📚
+                <h2>3h 45m Today</h2>
+            </div>
+
+            <div class="stat-card">
+                🎯
+                <h2>4 Sessions Done</h2>
+            </div>
+
+        </div>
+    </main>
+
+</div>
+
+<script src="focus.js"></script>
+
+</body>
+</html>
